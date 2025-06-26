@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-<your_secret_key_here>'
 DEBUG = True  # Установите False в продакшене
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Добавьте домены для продакшена
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.76']  # Добавьте домены для продакшена
 
 # Приложения
 INSTALLED_APPS = [

@@ -10,12 +10,15 @@ body {
   background: linear-gradient(180deg, #1E3A8A 0%, #1E40AF 50%, #3B82F6 100%);
   color: white;
   min-height: 100vh;
+  min-width: 1200px;
+  overflow-x: auto;
 }
 
 .container {
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  min-width: 1200px;
 }
 
 /* Header */
@@ -355,37 +358,7 @@ body {
   border-left: 3px solid #FF6B6B;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px 20px;
-  }
-  
-  .banner-text {
-    max-width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  .banner-text p:first-child {
-    font-size: 28px;
-  }
-  
-  .steps {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .step {
-    min-height: auto;
-  }
-  
-  .header {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
+/* Responsive Design - REMOVED to maintain desktop layout on all devices */
 .success-page {
   display: flex;
   flex-direction: column;
