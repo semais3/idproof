@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- Hair -->
+  <path d="M120 120 C90 90, 90 60, 120 50 C150 30, 250 30, 280 50 C310 60, 310 90, 280 120 C290 140, 290 160, 280 180 C270 200, 250 210, 230 200 C210 210, 190 210, 170 200 C150 210, 130 200, 120 180 C110 160, 110 140, 120 120 Z" fill="#D4A574" stroke="#2C3E50" stroke-width="3"/>
+  
+  <!-- Face -->
+  <ellipse cx="200" cy="150" rx="60" ry="80" fill="#E8B882" stroke="#2C3E50" stroke-width="3"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="185" cy="140" rx="8" ry="12" fill="#2C3E50"/>
+  <ellipse cx="215" cy="140" rx="8" ry="12" fill="#2C3E50"/>
+  
+  <!-- Eyebrows -->
+  <path d="M175 125 Q185 120 195 125" stroke="#2C3E50" stroke-width="4" fill="none"/>
+  <path d="M205 125 Q215 120 225 125" stroke="#2C3E50" stroke-width="4" fill="none"/>
+  
+  <!-- Nose -->
+  <path d="M195 160 Q200 165 205 160" stroke="#2C3E50" stroke-width="2" fill="none"/>
+  
+  <!-- Smile -->
+  <path d="M180 180 Q200 195 220 180" stroke="#2C3E50" stroke-width="4" fill="none"/>
+  
+  <!-- Hair curls -->
+  <circle cx="150" cy="110" r="15" fill="#D4A574" stroke="#2C3E50" stroke-width="3"/>
+  <circle cx="250" cy="110" r="15" fill="#D4A574" stroke="#2C3E50" stroke-width="3"/>
+  <circle cx="130" cy="140" r="12" fill="#D4A574" stroke="#2C3E50" stroke-width="3"/>
+  <circle cx="270" cy="140" r="12" fill="#D4A574" stroke="#2C3E50" stroke-width="3"/>
+  
+  <!-- Earrings -->
+  <circle cx="140" cy="165" r="8" fill="#FFD95A" stroke="#2C3E50" stroke-width="2"/>
+  <circle cx="260" cy="165" r="8" fill="#FFD95A" stroke="#2C3E50" stroke-width="2"/>
+  
+  <!-- Neck -->
+  <rect x="180" y="220" width="40" height="30" fill="#E8B882" stroke="#2C3E50" stroke-width="3"/>
+  
+  <!-- Shirt collar -->
+  <path d="M150 250 L180 220 L200 240 L220 220 L250 250 L220 270 L180 270 Z" fill="#7FB069" stroke="#2C3E50" stroke-width="3"/>
+  
+  <!-- Shirt -->
+  <rect x="120" y="270" width="160" height="200" fill="#7FB069" stroke="#2C3E50" stroke-width="3"/>
+  
+  <!-- Shirt details -->
+  <path d="M150 250 L200 270 L250 250" stroke="#2C3E50" stroke-width="3" fill="none"/>
+  <line x1="200" y1="270" x2="200" y2="350" stroke="#2C3E50" stroke-width="3"/>
+  
+  <!-- Buttons -->
+  <circle cx="200" cy="300" r="4" fill="#2C3E50"/>
+  <circle cx="200" cy="330" r="4" fill="#2C3E50"/>
+  <circle cx="200" cy="360" r="4" fill="#2C3E50"/>
+</svg>

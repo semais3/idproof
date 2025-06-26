@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDPROOF - Цифровая подпись новой эры</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">IDPROOF</div>
+        <nav class="nav">
+            <a href="#about">О проекте</a>
+            <a href="#register">Регистрация</a>
+        </nav>
+    </header>
+
+    <!-- Баннер с изображением -->
+    <section class="banner">
+        <div class="banner-text">
+            <p>Ты создаешь<br>Ты подписываешь<br>Ты доказываешь</p>
+            <p>IDPROOF - цифровая подпись новой эры</p>
+            <button onclick="alert('Это демо версия сайта. Для регистрации перейдите на полную версию.')" class="register-button">Зарегистрировать ID</button>
+        </div>
+        <div class="banner-character">
+            <!-- Character illustration will be added with CSS -->
+        </div>
+    </section>
+
+    <!-- Как это работает -->
+    <section class="how-it-works" id="register">
+        <h2 class="section-title">КАК ЭТО РАБОТАЕТ</h2>
+        <div class="steps">
+            <div class="step">
+                <h3 class="step-title">Регистрация</h3>
+                <div class="registration-form">
+                    <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input type="text" value="" placeholder="Введите ваше имя" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" value="" placeholder="Введите ваш email" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>CAPTCHA</label>
+                        <div style="background: #ccc; height: 60px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">Демо CAPTCHA</div>
+                    </div>
+                    <div class="form-group privacy-group">
+                        <input type="checkbox" disabled>
+                        <label class="privacy-label">
+                            Я согласен с политикой конфиденциальности
+                        </label>
+                    </div>
+                    <button type="button" class="submit-button" disabled>Получить ID</button>
+                </div>
+            </div>
+            <div class="step">
+                <h3 class="step-title">Ваш ID создан</h3>
+                <div class="vault-display">
+                    <div class="vault-code">HX23P</div>
+                    <button class="verify-button" disabled>Подтвердить</button>
+                </div>
+            </div>
+            <div class="step">
+                <h3 class="step-title">Публичный доступ</h3>
+                <div class="public-access">
+                    <div class="vault-icon">🔐</div>
+                    <div class="access-lines">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Зачем тебе IDPROOF -->
+    <section class="why-idproof" id="about">
+        <h2 class="section-title">ЗАЧЕМ ТЕБЕ IDPROOF</h2>
+        <div class="benefits">
+            <ul>
+                <li>• Уникальный цифровой след</li>
+                <li>• Авторство твоего ИИ контента</li>
+                <li>• Ранний доступ к Stage 2</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 IDPROOF. Это демо версия сайта.</p>
+        <p>Для полной функциональности посетите рабочую версию.</p>
+    </footer>
+</body>
+</html>
