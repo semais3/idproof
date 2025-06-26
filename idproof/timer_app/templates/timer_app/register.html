@@ -1,0 +1,125 @@
+<!-- timer_app/templates/timer_app/register.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - IDPROOF</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="{% url 'home' %}" class="logo-link">
+                <h1 class="logo">IDPROOF</h1>
+            </a>
+        </div>
+        
+        <div class="banner">
+            <div style="width: 100%; max-width: 400px; margin: 0 auto;">
+                <h2 style="text-align: center; margin-bottom: 30px; color: #FFD95A; font-family: 'Unbounded', sans-serif;">Регистрация</h2>
+                
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="{{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                
+                <form method="post" class="registration-form">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            <div class="errors">
+                                {% for error in form.username.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="errors">
+                                {% for error in form.email.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Капча</label>
+                        <div class="captcha" style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+                            {{ form.captcha }}
+                        </div>
+                        {% if form.captcha.errors %}
+                            <div class="errors">
+                                {% for error in form.captcha.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <style>
+                        /* Принудительные стили для капчи */
+                        .captcha img {
+                            width: 200px !important;
+                            height: 50px !important;
+                            object-fit: cover !important;
+                            display: block !important;
+                            margin-bottom: 15px !important;
+                        }
+                        .captcha input[type="text"] {
+                            width: 200px !important;
+                            padding: 10px !important;
+                            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+                            border-radius: 6px !important;
+                            background-color: rgba(255, 255, 255, 0.1) !important;
+                            color: white !important;
+                            font-size: 14px !important;
+                        }
+                        .captcha table {
+                            border: none !important;
+                            background: transparent !important;
+                        }
+                        .captcha td {
+                            border: none !important;
+                            background: transparent !important;
+                            padding: 0 !important;
+                            display: block !important;
+                        }
+                        .captcha tr {
+                            display: flex !important;
+                            flex-direction: column !important;
+                            gap: 15px !important;
+                        }
+                    </style>
+                    
+                    <div class="privacy-group">
+                        {{ form.privacy_policy }}
+                        <label for="{{ form.privacy_policy.id_for_label }}" class="privacy-label">
+                            Я согласен с <a href="{% url 'policy' %}" class="privacy-link" target="_blank">политикой конфиденциальности</a>
+                        </label>
+                        {% if form.privacy_policy.errors %}
+                            <div class="errors">
+                                {% for error in form.privacy_policy.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

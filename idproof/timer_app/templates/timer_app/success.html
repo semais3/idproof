@@ -1,0 +1,129 @@
+{% extends 'timer_app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="success-page">
+        <div class="success-banner">
+            <h2>Регистрация прошла успешно! 🎉</h2>
+            <p>Ваш уникальный код:</p>
+            <div class="code-display" onclick="copyToClipboard(this)">
+                <span id="unique-code">{{ code }}</span>
+            </div>
+            <p class="copy-hint">Нажмите на код, чтобы скопировать его.</p>
+        </div>
+        
+        <div class="share-section">
+            <p>Поделитесь своим кодом с друзьями!</p>
+            <div class="share-buttons">
+                <button onclick="shareToTelegram('{{ code }}')" class="share-button">
+                    <img src="{% static 'images/telegram.png' %}" alt="Telegram" class="share-icon">
+                </button>
+                <button onclick="shareToInstagram('{{ code }}')" class="share-button">
+                    <img src="{% static 'images/instagram.png' %}" alt="Instagram" class="share-icon">
+                </button>
+                <button onclick="shareToWhatsApp('{{ code }}')" class="share-button">
+                    <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="share-icon">
+                </button>
+            </div>
+            <button onclick="nativeShare('{{ code }}')" class="native-share-btn" id="nativeShareBtn" style="display: none;">
+                📤 Поделиться
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Проверяем поддержку Web Share API
+        if (navigator.share) {
+            document.getElementById('nativeShareBtn').style.display = 'block';
+        }
+
+        function copyToClipboard(element) {
+            const codeText = element.innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeText;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            tempTextArea.setSelectionRange(0, 99999); // Mobile
+            try {
+                document.execCommand('copy');
+                alert('Код скопирован в буфер обмена!');
+            } catch (err) {
+                console.error('Не удалось скопировать текст: ', err);
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        // Функция для нативного поделиться (Web Share API)
+        function nativeShare(code) {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Мой уникальный код',
+                    text: `Поделись этим кодом: ${code}`,
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Поделились успешно');
+                }).catch((error) => {
+                    console.log('Ошибка при поделиться:', error);
+                });
+            } else {
+                alert('Ваш браузер не поддерживает функцию поделиться');
+            }
+        }
+
+        // Функции для поделиться в социальных сетях
+        function shareToTelegram(code) {
+            const text = encodeURIComponent(`Поделись этим кодом: ${code}`);
+            const url = `https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${text}`;
+            
+            // Попробуем открыть приложение, если не получится - откроем веб-версию
+            const telegramApp = `tg://msg?text=${text}`;
+            
+            if (window.navigator.userAgent.includes('Mobile')) {
+                window.location.href = telegramApp;
+                setTimeout(() => {
+                    window.open(url, '_blank');
+                }, 1000);
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+
+        function shareToWhatsApp(code) {
+            const text = encodeURIComponent(`Поделись этим кодом: ${code}`);
+            const url = `https://wa.me/?text=${text}`;
+            window.open(url, '_blank');
+        }
+
+        function shareToInstagram(code) {
+            // Генерируем изображение для Instagram Stories
+            const imageUrl = `/instagram-story/${code}/`;
+            
+            // Создаем временную ссылку для скачивания изображения
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = `idproof_story_${code}.jpg`;
+            
+            // Уведомляем пользователя о процессе
+            alert('Сейчас загрузится изображение для Instagram Stories. Сохраните его и загрузите в Instagram!');
+            
+            // Скачиваем изображение
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Открываем Instagram через несколько секунд
+            setTimeout(() => {
+                if (window.navigator.userAgent.includes('Mobile')) {
+                    // Пытаемся открыть мобильное приложение Instagram
+                    window.location.href = 'instagram://story-camera';
+                    setTimeout(() => {
+                        window.open('https://www.instagram.com/', '_blank');
+                    }, 1000);
+                } else {
+                    // Открываем веб-версию Instagram
+                    window.open('https://www.instagram.com/', '_blank');
+                }
+            }, 2000);
+        }
+    </script>
+{% endblock %}
