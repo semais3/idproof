@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-<your_secret_key_here>'
 DEBUG = True  # Установите False в продакшене
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.76']  # Добавьте домены для продакшена
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.76', '.onrender.com']  # Добавьте домены для продакшена
 
 # Приложения
 INSTALLED_APPS = [
@@ -87,6 +87,7 @@ USE_TZ = True
 # Статические файлы (CSS, JavaScript, изображения)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]  # Путь к статическим файлам
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Для production
 
 # Настройки SMTP для отправки писем
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
